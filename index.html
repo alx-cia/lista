@@ -473,6 +473,11 @@ listEl.addEventListener("focusout", e=>{
 });
 
 render(false);
+
+// ── Service worker: full offline (registers sw.js when deployed; no-op locally) ──
+if("serviceWorker" in navigator){
+  addEventListener("load", ()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); });
+}
 </script>
 </body>
 </html>
